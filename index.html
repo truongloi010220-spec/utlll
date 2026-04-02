@@ -8,7 +8,7 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: Arial;
       background: linear-gradient(180deg, #2b00ff, #7a00cc);
       color: white;
       text-align: center;
@@ -18,23 +18,118 @@
       margin-top: 30px;
     }
 
-    .search-box {
-      margin: 20px auto;
-      width: 80%;
-      max-width: 400px;
-    }
-
     .search-box input {
-      width: 100%;
+      width: 80%;
       padding: 12px;
       border-radius: 25px;
       border: none;
-      outline: none;
+      margin: 15px 0;
+    }
+
+    .add-box input {
+      padding: 10px;
+      border-radius: 20px;
+      border: none;
+    }
+
+    .add-box button {
+      padding: 10px;
+      border-radius: 20px;
+      border: none;
+      margin-left: 5px;
     }
 
     .container {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .card {
+      background: #3a00b3;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    .card a {
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>quin Developer</h1>
+
+<div class="search-box">
+  <input type="text" id="search" placeholder="🔍 Tìm nhanh...">
+</div>
+
+<div class="add-box">
+  <input type="text" id="newLink" placeholder="Nhập web...">
+  <button onclick="addLink()">Thêm</button>
+</div>
+
+<div class="container" id="list">
+
+  <!-- WEB CÓ SẴN -->
+  <div class="card">
+    <a href="redirect.html?url=https://college-stories.ru.com">college-stories.ru.com</a>
+  </div>
+
+  <div class="card">
+    <a href="redirect.html?url=https://google.com">google.com</a>
+  </div>
+
+  <div class="card">
+    <a href="redirect.html?url=https://youtube.com">youtube.com</a>
+  </div>
+
+</div>
+
+<script>
+// TÌM KIẾM
+const search = document.getElementById("search");
+const cards = document.getElementsByClassName("card");
+
+search.addEventListener("keyup", function() {
+  let value = this.value.toLowerCase();
+
+  for (let i = 0; i < cards.length; i++) {
+    let text = cards[i].innerText.toLowerCase();
+    cards[i].style.display = text.includes(value) ? "block" : "none";
+  }
+});
+
+// THÊM LINK
+function addLink() {
+  let input = document.getElementById("newLink");
+  let link = input.value.trim();
+
+  if (link === "") return;
+
+  if (!link.startsWith("http")) {
+    link = "https://" + link;
+  }
+
+  let container = document.getElementById("list");
+
+  let div = document.createElement("div");
+  div.className = "card";
+
+  div.innerHTML = `<a href="redirect.html?url=${link}">${link}</a>`;
+
+  container.appendChild(div);
+
+  input.value = "";
+}
+</script>
+
+</body>
+</html>      grid-template-columns: repeat(2, 1fr);
       gap: 15px;
       padding: 20px;
     }
