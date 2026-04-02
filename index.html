@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quin Developer</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #2b00ff, #7a00cc);
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 28px;
+    }
+
+    .search-box {
+      margin: 20px auto;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .card {
+      background: #3a00b3;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      background: #4c00ff;
+    }
+
+    .card a {
+      color: white;
+      text-decoration: none;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>quin Developer</h1>
+
+  <div class="search-box">
+    <input type="text" id="search" placeholder="🔍 Tìm nhanh...">
+  </div>
+
+  <div class="container" id="list">
+
+    <!-- CARD -->
+    <div class="card"><a href="https://google.com" target="_blank">google.com</a></div>
+    <div class="card"><a href="https://youtube.com" target="_blank">youtube.com</a></div>
+    <div class="card"><a
