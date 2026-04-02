@@ -223,3 +223,77 @@ function addLink() {
   input.value = "";
 }
   </script>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chuyển hướng</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #f2f2f2;
+      padding: 20px;
+    }
+
+    .box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    a {
+      color: purple;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 8px;
+      background: purple;
+      color: white;
+      text-decoration: none;
+    }
+
+    .back {
+      background: gray;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>Thông báo Chuyển hướng</h2>
+
+  <p>
+    Trang trước đó đang đưa bạn tới:
+    <a id="link"></a>
+  </p>
+
+  <p>
+    Nếu bạn không muốn đến trang đó, bạn có thể quay lại.
+  </p>
+
+  <a id="go" class="btn">Tiếp tục</a>
+  <a href="index.html" class="btn back">Quay lại</a>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+let url = params.get("url");
+
+if (!url.startsWith("http")) {
+  url = "https://" + url;
+}
+
+document.getElementById("link").innerText = url;
+document.getElementById("link").href = url;
+
+document.getElementById("go").href = url;
+</script>
+
+</body>
+</html>
